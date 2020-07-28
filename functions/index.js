@@ -35,4 +35,7 @@ exports.static = functions.https.onRequest(static);
 
 // Export functions
 exports.updateFirestore = updateFirestore.onUserStatusChanged;
-exports.matchPlayer = matchmaking.matchPlayer;
+exports.matchPlayer9 = matchmaking.matchPlayer9;
+exports.matchPlayer13 = matchmaking.matchPlayer13;
+exports.matchPlayer19 = matchmaking.matchPlayer19;
+exports.matchPlayerSeasonal = matchmaking.matchPlayerSeasonal;
