@@ -19,7 +19,7 @@ exports.getWinningProb = (ratingPlayerA, ratingPlayerB) => {
         1)
     );
   } else if (ratingPlayerA > ratingPlayerB) {
-    return 1 - getWinningProb(ratingPlayerB, ratingPlayerA);
+    return 1 - this.getWinningProb(ratingPlayerB, ratingPlayerA);
   } else {
     return 0.5;
   }
@@ -32,16 +32,16 @@ exports.getRatingDelta = (ratingPlayerA, ratingPlayerB, outcome) => {
     throw Error("Outcome of game is invalid!");
   }
   const K = getK(ratingPlayerA);
-  const winningProb = getWinningProb(ratingPlayerA, ratingPlayerB);
+  const winningProb = this.getWinningProb(ratingPlayerA, ratingPlayerB);
   return Math.round(K * (outcome - winningProb));
 };
 
 // Compute the new rating of the current player.
-exports.getNewRating = (oldRating, currRating, oppRating, outcome) => {
+exports.getNewRating = (currRating, oppRating, outcome) => {
   if (!isValidOutcome(outcome)) {
     throw Error("Outcome of game is invalid!");
   }
-  return currRating + getRatingDelta(currRating, oppRating, outcome);
+  return currRating + this.getRatingDelta(currRating, oppRating, outcome);
 };
 
 // Get the difference in rating of 2 players
